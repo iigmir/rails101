@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_user_permission, only: [:edit, :update, :destroy]
   def index
     @groups = Group.all
   end
@@ -9,11 +10,9 @@ class GroupsController < ApplicationController
   end
   
   def edit
-    check_user_permission
   end
   
   def update
-    check_user_permission
     if @group.update(group_params)
       redirect_to groups_path, notice:"Update Success"
     else
@@ -35,7 +34,6 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    check_user_permission
     @group.destroy
     flash[:alert] = "Group deleted"
     redirect_to groups_path
