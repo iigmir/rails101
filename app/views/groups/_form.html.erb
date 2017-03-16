@@ -2,6 +2,12 @@
   <h2>Add new thread</h2>
   <hr/>
   <%= form_for @group do |f| %>
+    <% if @group.errors.any? %>
+      <% @group.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    <% end %>
+    <hr />
     Title: <%= f.text_field :title %>
     <br/>
     Context: <%= f.text_area :desc %>
