@@ -1,20 +1,11 @@
 <div class="col-md-4 col-md-offset-4">
   <h2>Add new thread</h2>
   <hr/>
-  <%= form_for @group do |f| %>
+  <%= simple_form_for @group do |f| %>
   <div class="form-group">
-    <% if @group.errors.any? %>
-      <% @group.errors.full_messages.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    <% end %>
-    <div class="form-group string optional">
-      <%= f.label "title", :class => "string optional control-label" %>
-      <%= f.text_field :title, :class => "string optional form-control" %>
-    </div>
-    <div class="form-group string optional">
-      <%= f.label "Description",:class=>"string optional control-label" %>
-      <%= f.text_area :desc,:class=>"string optional form-control" %>
+    <div class="form-group">
+      <%= f.input :title, input_html:{ class:"form-control" } %>
+      <%= f.input :desc , input_html:{ class:"form-control" } %>
     </div>
   </div>
     <%= f.submit "submit", class:"btn btn-primary", data: { disable_with: "Submitting..." } %>
