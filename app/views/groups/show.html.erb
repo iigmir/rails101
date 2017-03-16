@@ -9,11 +9,9 @@
   <p><%= @group.desc %></p>
   <table class="table">
     <thead>
-      <th>
         <td>Cotent</td>
         <td>Author</td>
         <td>Post Time</td>
-      </th>
     </thead>
     <tbody>
       <% @posts.each do |post| %>
@@ -25,4 +23,7 @@
     <% end %>
     </tbody>
   </table>
+  <div class="text-center">
+    <%= will_paginate @posts %>
+  </div>
 </div>
