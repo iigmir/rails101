@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <h2 class="text-center"></h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Post count</th>
+        <th>Last update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |g| %>
+        <td>#</td>
+        <td><%= link_to( g.title,group_path(g) ) %></td>
+        <td><%= g.desc %></td>
+        <td><%= g.posts.count %></td>
+        <td><%= g.updated_at%></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
