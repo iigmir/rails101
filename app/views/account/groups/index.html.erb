@@ -11,13 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @groups.each do |g| %>
-        <td>#</td>
-        <td><%= link_to( g.title,group_path(g) ) %></td>
-        <td><%= g.desc %></td>
-        <td><%= g.posts.count %></td>
-        <td><%= g.updated_at%></td>
-      <% end %>
+      <%= render :partial => "acc_gop", :collection => @groups, :as => :g %>
     </tbody>
   </table>
 </div>
